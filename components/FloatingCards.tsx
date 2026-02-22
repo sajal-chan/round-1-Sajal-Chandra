@@ -17,6 +17,7 @@ interface FloatingCardProps {
   icon?: ReactNode;
   colorClass: string;
   className?: string;
+  rotation?: number;
   delay?: number;
 }
 
@@ -26,6 +27,7 @@ export default function FloatingCard({
   icon,
   colorClass,
   className,
+  rotation = 0,
   delay = 0,
 }: FloatingCardProps) {
   // Entrance animation + subtle continuous floating
@@ -50,6 +52,7 @@ export default function FloatingCard({
     return (
       <motion.div
         {...animations}
+        style={{ rotate: `${rotation}deg` }}
         className={cn(
           "flex items-start gap-3 rounded-full px-6 py-4 shadow-xl backdrop-blur-sm",
           colorClass,
@@ -80,6 +83,7 @@ export default function FloatingCard({
   return (
     <motion.div
       {...animations}
+      style={{ rotate: `${rotation}deg` }}
       className={cn(
         "flex items-center gap-3 rounded-full px-8 py-4 shadow-xl backdrop-blur-sm text-lg font-medium",
         colorClass,

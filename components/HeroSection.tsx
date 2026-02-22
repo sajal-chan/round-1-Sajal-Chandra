@@ -53,7 +53,8 @@ export default function HeroSection() {
               label="Billing"
               icon={<Receipt className="w-6 h-6" />}
               colorClass="bg-blue-600 text-white"
-              className="lg:absolute lg:top-[15%] lg:left-[10%] lg:rotate-[-8deg] hover:scale-105 transition-transform"
+              rotation={-8}
+              className="lg:absolute lg:top-[15%] lg:left-[10%] hover:scale-105 transition-transform"
               delay={0.1}
             />
 
@@ -61,14 +62,16 @@ export default function HeroSection() {
               label="Matters"
               icon={<Gavel className="w-6 h-6" />}
               colorClass="bg-[#d97736] text-white"
-              className="lg:absolute lg:top-[50%] lg:left-[-5%] lg:rotate-[8deg] hover:scale-105 transition-transform"
+              rotation={8}
+              className="lg:absolute lg:top-[50%] lg:left-[-5%] hover:scale-105 transition-transform"
               delay={0.2}
             />
 
             <FloatingCard
               variant="portal"
               colorClass="bg-[#a3a3e6]"
-              className="lg:absolute lg:top-[60%] lg:left-[35%] lg:-rotate-2 hover:scale-105 transition-transform"
+              rotation={-2}
+              className="lg:absolute lg:top-[60%] lg:left-[35%] hover:scale-105 transition-transform"
               delay={0.3}
             />
 
@@ -76,7 +79,8 @@ export default function HeroSection() {
               label="Tasks"
               icon={<CheckSquare className="w-6 h-6" />}
               colorClass="bg-[#2a2438] text-orange-400"
-              className="lg:absolute lg:bottom-[5%] lg:left-[20%] lg:rotate-[-4deg] hover:scale-105 transition-transform"
+              rotation={-4}
+              className="lg:absolute lg:bottom-[5%] lg:left-[20%] hover:scale-105 transition-transform"
               delay={0.4}
             />
 
@@ -84,7 +88,8 @@ export default function HeroSection() {
               label="Documents"
               icon={<FileText className="w-6 h-6" />}
               colorClass="bg-[#332732] text-amber-500"
-              className="lg:absolute lg:bottom-[10%] lg:right-[5%] lg:-rotate-12 hover:scale-105 transition-transform"
+              rotation={-12}
+              className="lg:absolute lg:bottom-[10%] lg:right-[5%] hover:scale-105 transition-transform"
               delay={0.5}
             />
 
