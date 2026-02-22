@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -30,6 +30,16 @@ export default function FloatingCard({
   rotation = 0,
   delay = 0,
 }: FloatingCardProps) {
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+  useEffect(() => {
+    // Check screen size on mount and on resize
+    const checkScreen = () => setIsLargeScreen(window.innerWidth >= 1024);
+    checkScreen();
+    window.addEventListener('resize', checkScreen);
+    return () => window.removeEventListener('resize', checkScreen);
+  }, []);
+
   // Entrance animation + subtle continuous floating
   const animations = {
     initial: { opacity: 0, y: 30 },
@@ -47,12 +57,15 @@ export default function FloatingCard({
       },
     },
   };
+  
+  // Only apply rotation on large screens for better mobile stacking
+  const rotationStyle = isLargeScreen ? { rotate: `${rotation}deg` } : {};
 
   if (variant === "portal") {
     return (
       <motion.div
         {...animations}
-        style={{ rotate: `${rotation}deg` }}
+        style={rotationStyle}
         className={cn(
           "flex items-start gap-3 rounded-full px-6 py-4 shadow-xl backdrop-blur-sm",
           colorClass,
@@ -83,7 +96,7 @@ export default function FloatingCard({
   return (
     <motion.div
       {...animations}
-      style={{ rotate: `${rotation}deg` }}
+      style={rotationStyle}
       className={cn(
         "flex items-center gap-3 rounded-full px-8 py-4 shadow-xl backdrop-blur-sm text-lg font-medium",
         colorClass,

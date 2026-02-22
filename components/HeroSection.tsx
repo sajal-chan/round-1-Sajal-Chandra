@@ -47,7 +47,7 @@ export default function HeroSection() {
 
           {/* Right Column: Floating Elements */}
           {/* Mobile: Stacks vertically. Desktop/LG: Absolute positioning playground */}
-          <div className="relative z-10 w-full h-125 lg:h-175 flex flex-col gap-4 lg:block">
+          <div className="relative z-10 w-full h-auto lg:h-175 flex flex-col gap-6 lg:gap-4 lg:block">
             
             <FloatingCard
               label="Billing"
